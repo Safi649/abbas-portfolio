@@ -16,111 +16,171 @@
       background-color: #0f172a;
       color: #f1f5f9;
       line-height: 1.6;
-      padding: 40px 20px;
     }
+    /* Hero Section */
     header {
       text-align: center;
-      margin-bottom: 50px;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #3b82f6, #9333ea);
+      color: white;
+      animation: fadeIn 1.5s ease-in-out;
     }
     header h1 {
-      font-size: 42px;
+      font-size: 48px;
       margin-bottom: 10px;
     }
     header p {
       font-size: 18px;
-      color: #94a3b8;
+      opacity: 0.9;
     }
     .profile-pic {
       width: 160px;
       border-radius: 12px;
-      border: 3px solid #334155;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      border: 3px solid rgba(255,255,255,0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
       margin: 20px auto;
       display: block;
     }
+    /* Sections */
     section {
-      max-width: 900px;
-      margin: 0 auto 50px;
+      max-width: 1100px;
+      margin: 50px auto;
       padding: 30px;
       background: #1e293b;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      animation: fadeUp 1s ease-in-out;
     }
     h2 {
-      font-size: 24px;
+      font-size: 26px;
       margin-bottom: 20px;
       color: #3b82f6;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul li {
-      margin-bottom: 20px;
-    }
-    a {
-      color: #3b82f6;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
     }
     .project {
       background-color: #0f172a;
       border: 1px solid #334155;
       padding: 15px;
       border-radius: 8px;
-      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .project strong {
+      font-size: 18px;
+      color: #f1f5f9;
+    }
+    .project p {
+      font-size: 14px;
+      color: #94a3b8;
+      margin: 8px 0;
+    }
+    .visit-link {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .visit-link:hover {
+      text-decoration: underline;
+    }
+    /* Footer */
     footer {
       text-align: center;
       font-size: 14px;
-      color: #64748b;
-      margin-top: 40px;
+      color: #94a3b8;
+      padding: 30px 10px;
+      background-color: #0f172a;
+      margin-top: 50px;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      color: #94a3b8;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #3b82f6;
+    }
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/4b5f48b6d0.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
+  <!-- Hero Section -->
   <header>
     <img src="images/profile.jpg" alt="M Abbas Safi" class="profile-pic">
     <h1>M Abbas Safi</h1>
     <p>Web Developer | Frontend Enthusiast | Builder of Digital Dreams</p>
   </header>
 
+  <!-- About -->
   <section>
     <h2>About Me</h2>
-    <p>I’m a passionate developer from Swabi, KPK who specializes in building responsive, fast-loading, and creative websites. I’ve worked on production-ready projects like SafiBuilds, Maulig Homeopathic, and Safi AI Mall. I love solving problems with code and making ideas come to life on the web.</p>
+    <p>I’m a passionate developer from Swabi, KPK who specializes in building responsive, fast-loading, and creative websites. I’ve worked on production-ready projects like Global Scholarships, CAL-D, Maulig Homeopathic, and Dr. Amjad Ali’s profile. I love solving problems with code and making ideas come to life on the web.</p>
   </section>
 
+  <!-- Projects -->
   <section>
     <h2>Projects</h2>
-    <div class="project">
-      <strong>SafiBuilds.com</strong><br>
-      <a href="https://25d26009-c403-4258-aabe-023043565697.dev36.app-preview.com/" target="_blank">Live Preview</a><br>
-      A platform for agencies and freelancers to build stunning websites.
-    </div>
-    <div class="project">
-      <strong>Maulig Homeopathic</strong><br>
-      <a href="https://v0-maulig-homeopathic-website.vercel.app/" target="_blank">Live Website</a><br>
-      A modern homeopathy website with appointment booking and services.
-    </div>
-    <div class="project">
-      <strong>Safi AI Mall</strong><br>
-      <a href="https://25de4f6e-e98b-4db6-a22e-03b10725d094.dev31.app-preview.com/" target="_blank">Live Demo</a><br>
-      A futuristic AI-powered virtual shopping mall with digital shops.
+    <div class="projects-grid">
+      <div class="project">
+        <strong>Global Scholarships</strong>
+        <p>A modern platform dedicated to sharing the latest international scholarship opportunities with students worldwide.</p>
+        <a href="https://global-scholarships.netlify.app" target="_blank" class="visit-link">Visit Website</a>
+      </div>
+      <div class="project">
+        <strong>Sajjad Website (CAL-D)</strong>
+        <p>A clean and informative website for our own product, CAL-D, showcasing its features and benefits.</p>
+        <a href="https://sajjad.unaux.com" target="_blank" class="visit-link">Visit Website</a>
+      </div>
+      <div class="project">
+        <strong>Dr. Amjad Ali</strong>
+        <p>A professional online profile for Dr. Amjad Ali, highlighting his expertise, qualifications, and services.</p>
+        <a href="https://dr-amjadali.netlify.app" target="_blank" class="visit-link">Visit Website</a>
+      </div>
+      <div class="project">
+        <strong>Maulig Homeopathic</strong>
+        <p>A modern homeopathy website with services, treatments, and contact information.</p>
+        <a href="https://v0-maulig-homeopathic-website.vercel.app/" target="_blank" class="visit-link">Visit Website</a>
+      </div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section>
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:safi65225@gmail.com">safi65225@gmail.com</a></p>
+    <p>Email: <a href="mailto:safi65225@gmail.com" class="visit-link">safi65225@gmail.com</a></p>
     <p>Phone: +92 348 9085366</p>
     <p>Location: Zaida, Swabi, KPK, Pakistan</p>
   </section>
 
+  <!-- Footer -->
   <footer>
-    &copy; 2025 M Abbas Safi — All Rights Reserved
+    <div class="social-icons">
+      <a href="mailto:safi65225@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+    <p>&copy; 2025 M Abbas Safi — All Rights Reserved</p>
   </footer>
+
 </body>
 </html>
