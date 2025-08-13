@@ -4,183 +4,329 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>M Abbas Safi | Web Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Devicon for tech icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+  <!-- Font Awesome for social/icons -->
+  <script src="https://kit.fontawesome.com/4b5f48b6d0.js" crossorigin="anonymous"></script>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --panel:#1e293b;       /* slate-800 */
+      --text:#f1f5f9;        /* slate-100 */
+      --muted:#94a3b8;       /* slate-400 */
+      --brand:#3b82f6;       /* blue-500 */
+      --brand2:#9333ea;      /* purple-600 */
+      --card:#0b1224;        /* darker card */
+      --border:#334155;      /* slate-600 */
     }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #0f172a;
-      color: #f1f5f9;
-      line-height: 1.6;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
     }
-    /* Hero Section */
-    header {
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #3b82f6, #9333ea);
-      color: white;
-      animation: fadeIn 1.5s ease-in-out;
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* ===== HERO ===== */
+    header.hero{
+      position:relative;
+      text-align:center;
+      padding:90px 20px 70px;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      color:#fff;
+      overflow:hidden;
     }
-    header h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
+    .floating{position:absolute;opacity:.15;filter:blur(30px)}
+    .floating.f1{width:240px;height:240px;background:#fff;border-radius:50%;top:-60px;left:-60px}
+    .floating.f2{width:280px;height:280px;background:#fff;border-radius:50%;bottom:-80px;right:-80px}
+
+    .profile-pic{
+      width:160px;height:160px;object-fit:cover;
+      border-radius:16px;border:3px solid rgba(255,255,255,.35);
+      box-shadow:0 20px 40px rgba(0,0,0,.35);
+      display:block;margin:10px auto 20px;
     }
-    header p {
-      font-size: 18px;
-      opacity: 0.9;
+    header.hero h1{font-size:48px;letter-spacing:.5px}
+    header.hero p.sub{font-size:18px;opacity:.95;margin-top:8px}
+    .typing{margin-top:14px;font-weight:600;font-size:18px;min-height:28px}
+
+    /* ===== GENERIC SECTION ===== */
+    section.section{
+      max-width:1100px;margin:48px auto;padding:30px;position:relative;
+      background:var(--panel);border-radius:14px;border:1px solid var(--border);
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
     }
-    .profile-pic {
-      width: 160px;
-      border-radius: 12px;
-      border: 3px solid rgba(255,255,255,0.3);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      margin: 20px auto;
-      display: block;
+    section.section h2{font-size:26px;color:var(--brand);margin-bottom:16px}
+    .muted{color:var(--muted)}
+
+    /* ===== ABOUT ===== */
+    .about p{font-size:16px;color:var(--text)}
+
+    /* ===== SKILLS ===== */
+    .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+    .skill{
+      background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;
+      display:flex;align-items:center;gap:12px;transition:transform .25s ease, box-shadow .25s ease;
     }
-    /* Sections */
-    section {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 30px;
-      background: #1e293b;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      animation: fadeUp 1s ease-in-out;
+    .skill:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.25)}
+    .skill i{font-size:28px}
+    .skill .name{font-weight:600}
+    .i-html{color:#e34f26}.i-css{color:#1572B6}.i-js{color:#f7df1e}
+    .i-react{color:#61dafb}.i-next{color:#fff}.i-firebase{color:#ffca28}
+    .badge{font-size:12px;padding:3px 8px;border-radius:999px;background:#0a1223;border:1px solid var(--border);color:var(--muted)}
+
+    /* ===== PROJECTS ===== */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .project{
+      background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;
+      transition:transform .3s ease, box-shadow .3s ease;
     }
-    h2 {
-      font-size: 26px;
-      margin-bottom: 20px;
-      color: #3b82f6;
+    .project:hover{transform:translateY(-6px);box-shadow:0 16px 28px rgba(0,0,0,.3)}
+    .project strong{font-size:18px}
+    .project p{font-size:14px;color:var(--muted);margin:8px 0 12px}
+    .project .visit-link{font-weight:700}
+
+    /* ===== TIMELINE ===== */
+    .timeline{position:relative;margin-left:6px}
+    .timeline:before{content:"";position:absolute;left:14px;top:0;bottom:0;width:2px;background:var(--border)}
+    .tl-item{position:relative;padding-left:40px;margin:14px 0}
+    .tl-item:before{content:"";position:absolute;left:6px;top:6px;width:16px;height:16px;border-radius:50%;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));border:2px solid #0b1224}
+    .tl-item h4{margin-bottom:4px}
+    .tl-item .when{font-size:12px;color:var(--muted)}
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .quote{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
+    .quote p{color:var(--text)}
+    .quote .by{margin-top:10px;color:var(--muted);font-size:14px}
+
+    /* ===== STATS ===== */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+    .stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center}
+    .stat .num{font-size:28px;font-weight:700}
+    .stat .label{color:var(--muted);font-size:13px}
+
+    /* ===== CONTACT ===== */
+    .contact form{display:grid;gap:12px}
+    .input, textarea{
+      width:100%;background:#0a1223;border:1px solid var(--border);color:var(--text);
+      border-radius:10px;padding:12px;font:inherit
     }
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+    textarea{min-height:120px;resize:vertical}
+    .btn{
+      display:inline-block;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;
+      padding:12px 16px;border:none;border-radius:10px;font-weight:700;cursor:pointer
     }
-    .project {
-      background-color: #0f172a;
-      border: 1px solid #334155;
-      padding: 15px;
-      border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
-    .project strong {
-      font-size: 18px;
-      color: #f1f5f9;
-    }
-    .project p {
-      font-size: 14px;
-      color: #94a3b8;
-      margin: 8px 0;
-    }
-    .visit-link {
-      color: #3b82f6;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .visit-link:hover {
-      text-decoration: underline;
-    }
-    /* Footer */
-    footer {
-      text-align: center;
-      font-size: 14px;
-      color: #94a3b8;
-      padding: 30px 10px;
-      background-color: #0f172a;
-      margin-top: 50px;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      color: #94a3b8;
-      font-size: 20px;
-      transition: color 0.3s ease;
-    }
-    .social-icons a:hover {
-      color: #3b82f6;
-    }
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .btn:hover{opacity:.95}
+
+    /* ===== FOOTER ===== */
+    footer{ text-align:center; font-size:14px; color:var(--muted); padding:30px 10px; margin:40px 0 10px }
+    .social-icons a{ margin:0 10px; color:var(--muted); font-size:20px; transition:color .3s ease }
+    .social-icons a:hover{ color:var(--brand) }
+
+    /* ===== REVEAL ON SCROLL ===== */
+    .reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.visible{opacity:1; transform:translateY(0)}
+
+    @media (max-width:480px){
+      header.hero h1{font-size:36px}
+      .profile-pic{width:130px;height:130px}
     }
   </style>
-  <!-- Icons -->
-  <script src="https://kit.fontawesome.com/4b5f48b6d0.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header>
-    <img src="images/profile.jpg" alt="M Abbas Safi" class="profile-pic">
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="floating f1"></div>
+    <div class="floating f2"></div>
+    <img src="images/profile.jpg" alt="M Abbas Safi" class="profile-pic" />
     <h1>M Abbas Safi</h1>
-    <p>Web Developer | Frontend Enthusiast | Builder of Digital Dreams</p>
+    <p class="sub">Web Developer • Frontend Enthusiast • Builder of Digital Dreams</p>
+    <p class="typing" id="typing"></p>
   </header>
 
-  <!-- About -->
-  <section>
+  <!-- ===== ABOUT ===== -->
+  <section class="section about reveal">
     <h2>About Me</h2>
     <p>I’m a passionate developer from Swabi, KPK who specializes in building responsive, fast-loading, and creative websites. I’ve worked on production-ready projects like Global Scholarships, CAL-D, Maulig Homeopathic, and Dr. Amjad Ali’s profile. I love solving problems with code and making ideas come to life on the web.</p>
   </section>
 
-  <!-- Projects -->
-  <section>
+  <!-- ===== SKILLS ===== -->
+  <section class="section reveal">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill"><i class="devicon-html5-plain i-html"></i><span class="name">HTML5</span><span class="badge">Semantic, SEO</span></div>
+      <div class="skill"><i class="devicon-css3-plain i-css"></i><span class="name">CSS3</span><span class="badge">Flexbox, Grid</span></div>
+      <div class="skill"><i class="devicon-javascript-plain i-js"></i><span class="name">JavaScript</span><span class="badge">ES6+</span></div>
+      <div class="skill"><i class="devicon-react-original i-react"></i><span class="name">React</span><span class="badge">Hooks</span></div>
+      <div class="skill"><i class="devicon-nextjs-original i-next"></i><span class="name">Next.js</span><span class="badge">SSR/SSG</span></div>
+      <div class="skill"><i class="devicon-firebase-plain i-firebase"></i><span class="name">Firebase</span><span class="badge">Auth/DB</span></div>
+      <div class="skill"><i class="fa-solid fa-palette" style="color:#0ea5e9"></i><span class="name">Canva</span><span class="badge">Design</span></div>
+      <div class="skill"><i class="fa-solid fa-clapperboard" style="color:#22c55e"></i><span class="name">CapCut</span><span class="badge">Editing</span></div>
+      <div class="skill"><i class="devicon-photoshop-plain" style="color:#31a8ff"></i><span class="name">Photoshop</span><span class="badge">Graphics</span></div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="section reveal">
     <h2>Projects</h2>
     <div class="projects-grid">
       <div class="project">
         <strong>Global Scholarships</strong>
         <p>A modern platform dedicated to sharing the latest international scholarship opportunities with students worldwide.</p>
-        <a href="https://global-scholarships.netlify.app" target="_blank" class="visit-link">Visit Website</a>
+        <a class="visit-link" href="https://global-scholarships.netlify.app" target="_blank" rel="noopener">Visit Website</a>
       </div>
       <div class="project">
         <strong>Sajjad Website (CAL-D)</strong>
         <p>A clean and informative website for our own product, CAL-D, showcasing its features and benefits.</p>
-        <a href="https://sajjad.unaux.com" target="_blank" class="visit-link">Visit Website</a>
+        <a class="visit-link" href="https://sajjad.unaux.com" target="_blank" rel="noopener">Visit Website</a>
       </div>
       <div class="project">
         <strong>Dr. Amjad Ali</strong>
         <p>A professional online profile for Dr. Amjad Ali, highlighting his expertise, qualifications, and services.</p>
-        <a href="https://dr-amjadali.netlify.app" target="_blank" class="visit-link">Visit Website</a>
+        <a class="visit-link" href="https://dr-amjadali.netlify.app" target="_blank" rel="noopener">Visit Website</a>
       </div>
       <div class="project">
         <strong>Maulig Homeopathic</strong>
         <p>A modern homeopathy website with services, treatments, and contact information.</p>
-        <a href="https://v0-maulig-homeopathic-website.vercel.app/" target="_blank" class="visit-link">Visit Website</a>
+        <a class="visit-link" href="https://v0-maulig-homeopathic-website.vercel.app/" target="_blank" rel="noopener">Visit Website</a>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section>
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:safi65225@gmail.com" class="visit-link">safi65225@gmail.com</a></p>
-    <p>Phone: +92 348 9085366</p>
-    <p>Location: Zaida, Swabi, KPK, Pakistan</p>
+  <!-- ===== EXPERIENCE & ACHIEVEMENTS ===== -->
+  <section class="section reveal">
+    <h2>Experience & Achievements</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <h4>Lead – Global Scholarships</h4>
+        <div class="when">2025</div>
+        <p class="muted">Built and launched a platform for international scholarship opportunities with modern, animated UI.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Product Site – CAL-D</h4>
+        <div class="when">2025</div>
+        <p class="muted">Designed and developed the CAL-D website focusing on clarity, features, and conversion.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Portfolio & Client Work</h4>
+        <div class="when">2024 – 2025</div>
+        <p class="muted">Delivered multiple client websites including Maulig Homeopathic and Dr. Amjad Ali’s profile site.</p>
+      </div>
+      <div class="tl-item">
+        <h4>Academic Excellence</h4>
+        <div class="when">Till 2023</div>
+        <p class="muted">Secured first position in every class; completed matric at Advance Education School System, Anbar, Swabi.</p>
+      </div>
+      <div class="tl-item">
+        <h4>ACCESS Certificate</h4>
+        <div class="when">Achievement</div>
+        <p class="muted">Recognized for strong communication and leadership skills.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section reveal">
+    <h2>Testimonials</h2>
+    <div class="testimonials">
+      <div class="quote">
+        <p>“Abbas delivered a clean, fast website and communicated clearly at every step.”</p>
+        <div class="by">— Client Feedback</div>
+      </div>
+      <div class="quote">
+        <p>“Professional, creative, and detail‑oriented — highly recommended for web projects.”</p>
+        <div class="by">— Project Partner</div>
+      </div>
+      <div class="quote">
+        <p>“Great frontend work with a strong sense of modern UI/UX.”</p>
+        <div class="by">— Mentor</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIVE STATS (no years of experience) ===== -->
+  <section class="section reveal">
+    <h2>Stats</h2>
+    <div class="stats">
+      <div class="stat"><div class="num" data-count="12">0</div><div class="label">Projects Completed</div></div>
+      <div class="stat"><div class="num" data-count="6">0</div><div class="label">Happy Clients</div></div>
+      <div class="stat"><div class="num" data-count="4">0</div><div class="label">Active Products</div></div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section contact reveal">
+    <h2>Contact</h2>
+    <p class="muted" style="margin-bottom:10px">Prefer email? <a href="mailto:safi65225@gmail.com">safi65225@gmail.com</a>. Or send a message here:</p>
+    <!-- Replace the action URL with your Formspree endpoint: https://formspree.io/f/XXXXXX -->
+    <form action="https://formspree.io/f/your-id" method="POST">
+      <input class="input" type="text" name="name" placeholder="Your name" required>
+      <input class="input" type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" class="input" placeholder="Your message" required></textarea>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="social-icons">
-      <a href="mailto:safi65225@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:safi65225@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
     </div>
-    <p>&copy; 2025 M Abbas Safi — All Rights Reserved</p>
+    <p style="margin-top:10px">&copy; 2025 M Abbas Safi — All Rights Reserved</p>
   </footer>
 
+  <script>
+    // ===== Typing Effect =====
+    const typingEl = document.getElementById('typing');
+    const roles = [
+      'Frontend Developer',
+      'React & Next.js Builder',
+      'Firebase + UI/UX Enthusiast',
+      'Designer: Canva • CapCut • Photoshop'
+    ];
+    let r = 0, c = 0, deleting = false;
+    function typeLoop(){
+      const current = roles[r];
+      if(!deleting){
+        typingEl.textContent = current.slice(0, ++c);
+        if(c === current.length){ deleting = true; setTimeout(typeLoop, 1200); return; }
+      } else {
+        typingEl.textContent = current.slice(0, --c);
+        if(c === 0){ deleting = false; r = (r+1) % roles.length; }
+      }
+      setTimeout(typeLoop, deleting ? 35 : 65);
+    }
+    typeLoop();
+
+    // ===== Reveal on Scroll =====
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, {threshold: .12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    // ===== Counter Animation =====
+    const counters = document.querySelectorAll('.num');
+    const counterObs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const el = entry.target; const target = +el.dataset.count; let n = 0; const step = Math.max(1, Math.round(target/60));
+          const tick = ()=>{ n += step; if(n>=target){ el.textContent = target; } else { el.textContent = n; requestAnimationFrame(tick); } };
+          tick(); counterObs.unobserve(el);
+        }
+      });
+    }, {threshold:.2});
+    counters.forEach(c=>counterObs.observe(c));
+  </script>
 </body>
 </html>
